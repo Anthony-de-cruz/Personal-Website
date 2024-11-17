@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+/*
+#131316 BLACK
+#FFFFFF WHITE
+#726EFF
+#SAFFE7
+#08C6AB
+#37465B
+#212B38
+*/
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #37465b;
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: clamp(1.125rem, 2vw, 2rem);
+}
+
+article {
+  min-height: 40vh;
+
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.main-header {
+  margin-top: 5vh;
+  margin-bottom: 10vh;
+
+  text-align: center;
+}
+
+.sub-header {
+  margin-inline: 30vh;
+}
+
+.sub-header p {
+  font-size: clamp(1rem, 1.5vw, 1.75rem);
+  font-style: italic;
+}
+
+section {
+  min-height: 20vh;
+  margin-top: 2.5vh;
+  margin-bottom: 2.5vh;
+  margin-inline: 20vw;
+
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+
+  font-size: clamp(1rem, 1.25vw, 1.5rem);
+}
+
+section p {
+  margin-bottom: 2.5vh;
+}
+
+.column {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-width: 100px;
+  grid-auto-rows: minmax(10px, auto);
+  gap: 20px;
+
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+
+  text-align: left;
+}
+
+figure {
+  text-align: center;
+  display: inline-block;
+}
+
+figure img {
+  max-width: 35vw;
+
+  border: 4px solid transparent;
+  border-radius: 15px;
+}
+
+.youtube-embed {
+  aspect-ratio: 16 / 9;
+  width: 35vw;
+}
+
+.spotify-embed-tile {
+  display: inline-block;
+
+  height: 352px;
+  width: 252px;
+
+  margin: 10px;
+
+  border-radius: 15px;
+}
+
+.spotify-tile-display {
+  text-align: center;
+}
+
+footer {
+  padding: 2.5vh;
+  margin-top: 10vh;
+  text-align: center;
+
+  font-size: clamp(1rem, 1vw, 1.75rem);
+  background-color: #212b38;
+}
+
+footer ul {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer li {
+  display: inline-block;
+  vertical-align: middle;
+  padding-inline: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .sub-header {
+    text-align: center;
+    margin-inline: 0;
+  }
+
+  .column {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  figure img {
+    max-width: 50vw;
+  }
+
+  .youtube-embed {
+    width: 80vw;
+
+    margin-inline: auto;
+  }
+
+  .spotify-embed-tile {
+    height: 152px;
+    width: 80vw;
+
+    margin: 5px;
+  }
+}
+
+.scroll-hidden {
+  opacity: 0;
+  filter: blur(5px);
+  transition: all 1s;
+}
+
+.scroll-hidden-drop {
+  transform: translateY(-5vh);
+}
+
+.scroll-show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion) {
+  .hidden {
+    transition: none;
+  }
+}

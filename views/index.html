@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device, initial scale =1" />
+    <title>Anthony de Cruz - Personal Website</title>
+
+    <link rel="stylesheet" href="public/styles/main.css" />
+    <link rel="stylesheet" href="public/styles/intro.css" />
+
+    <script src="https://unpkg.com/htmx.org/dist/htmx.min.js"></script>
+    <script defer src="public/scripts/scrollObserver.js"></script>
+    <script src="public/scripts/scrollTo.js"></script>
+  </head>
+
+  <body>
+    {{template "intro" .}}
+
+    <main id="content"></main>
+
+    {{template "footer.html" .}}
+  </body>
+</html>
+
+{{define "intro"}}
+<header id="intro" class="scroll-hidden scroll-hidden-drop">
+  <h1>
+    <span class="intro-code">printf("</span>
+    Hello, world
+    <span class="intro-code">");⠀⠀⠀⠀⠀</span>
+  </h1>
+  <h3>I'm Anthony, a Software Engineer</h3>
+</header>
+
+<nav id="intro-nav" class="scroll-hidden scroll-hidden-drop">
+  <a href="#content" hx-target="#content" hx-get="/article" title="Projects">
+    Projects
+  </a>
+  <a title="Interests"> Interests </a>
+  <a href="https://github.com/Anthony-de-cruz" title="Github">Github</a>
+  <a href="public/Anthony de Cruz CV.pdf" title="CV">CV</a>
+</nav>
+{{end}}
