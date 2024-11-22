@@ -19,12 +19,47 @@ var templates = template.Must(
 	),
 )
 
-type Page struct {
-	Footer *template.Template
+type Article struct {
+	Header    string
+	SubHeader string
+	Sections  []Section
+}
+
+type Section struct {
+	Header     string
+	SubHeader  string
+	Paragraphs []string
+}
+
+func loadArticle() Article {
+	article := Article{
+		Header:    "My Article",
+		SubHeader: "A test article",
+		Sections: []Section{
+			{
+				Header:    "Introduction",
+				SubHeader: "how it all came to be . . .",
+				Paragraphs: []string{
+					"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce molestie vulputate arcu ac efficitur. Duis ac massa a est eleifend dignissim. Quisque lobortis vitae magna nec laoreet.",
+					"Aenean at mollis massa, vel tincidunt odio. Nulla facilisi. Nam pellentesque risus arcu, vitae vulputate est commodo a. Nam eget feugiat tortor, quis posuere risus. Sed posuere magna vitae libero malesuada, id aliquam lacus facilisis.",
+				},
+			},
+			{
+				Header:    "Conclusion",
+				SubHeader: ". . . in the end",
+				Paragraphs: []string{
+					"This is the end of the article.",
+					"Suck on it.",
+				},
+			},
+		},
+	}
+
+	return article
 }
 
 func renderTemplate(wr http.ResponseWriter, tmplName string) {
-	err := templates.ExecuteTemplate(wr, tmplName+".html", nil)
+	err := templates.ExecuteTemplate(wr, tmplName+".html", loadArticle())
 	if err != nil {
 		http.Error(wr, err.Error(), http.StatusInternalServerError)
 	}

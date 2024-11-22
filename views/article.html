@@ -1,47 +1,23 @@
 <article class="scroll-hidden">
   <header class="main-header">
-    <h1>My Project Title</h1>
-    <p>The project one liner</p>
+    <h1>{{ .Header }}</h1>
+    <p>{{ .SubHeader }}</p>
   </header>
 
-  <header class="sub-header">
-    <h1>Introduction</h1>
-    <p>2024</p>
-  </header>
-  <section>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nisl
-      ligula, tincidunt non mauris a, sollicitudin porta purus. Etiam in metus
-      porttitor, lobortis metus quis, condimentum purus. Donec a elit mollis,
-      bibendum sapien eu, pulvinar ante. Proin et orci urna. Maecenas urna
-      libero, dictum vitae venenatis nec, gravida non elit. Ut dictum sit amet
-      erat a consequat. Cras porttitor efficitur luctus. Nullam rhoncus, metus
-      quis congue auctor, nulla sem rhoncus libero, interdum interdum metus
-      metus ut metus. Praesent non est sed erat fermentum vehicula ac et nisi.
-      Duis sed varius sem. Quisque sed eros felis. Sed aliquam nibh in augue
-      vehicula, id dictum arcu semper. Suspendisse blandit fermentum nisl, eget
-      dignissim mi hendrerit laoreet. Morbi felis leo, commodo ac maximus vitae,
-      sodales et massa. Proin porta elit facilisis lobortis vestibulum.
-    </p>
-  </section>
+  {{ range .Sections }}
 
   <header class="sub-header">
-    <h1>Later...</h1>
-    <p>2025</p>
+    <h1>{{ .Header }}</h1>
+    <p>{{ .SubHeader }}</p>
   </header>
+
   <section>
-    <p>
-      Duis elementum iaculis interdum. Vivamus in egestas purus. Nunc tempus
-      efficitur convallis. Proin posuere nunc laoreet, faucibus mauris eu,
-      rutrum quam. Cras urna dolor, porta sed feugiat ac, aliquet eu lectus.
-      Proin auctor aliquam metus, a lacinia elit rhoncus at. Maecenas ultrices
-      ut sem in consectetur. Etiam sem felis, dictum a odio commodo, ullamcorper
-      lobortis mauris. Quisque elementum nulla ipsum. Pellentesque non urna at
-      dui sodales tempor. Pellentesque aliquet nulla at nisl consequat, et
-      vulputate ante suscipit. Integer felis massa, luctus eget elit volutpat,
-      tempus semper nulla. Nunc interdum et dui a ornare. Nunc ornare, ex
-      hendrerit congue tincidunt, elit nisl bibendum est, eu rhoncus dui nisl
-      quis ante.
-    </p>
+    {{ range .Paragraphs }}
+
+    <p>{{ . }}</p>
+
+    {{ end }}
   </section>
+
+  {{ end }}
 </article>
